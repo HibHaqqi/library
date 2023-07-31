@@ -21,3 +21,5 @@ api.get('/v1/books',  async (req,res)=>{
 api.post('v1/books', async (req,res)=>{
 
 });
+
+module.exports = api;

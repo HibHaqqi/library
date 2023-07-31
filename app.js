@@ -8,12 +8,12 @@ app.use(express.json());
 app.use(express.urlencoded({
     extended: false
 }));
-app.use("/", router);
+
 
 app.get("/", (req,res)=>{
     res.send("serve up");
 });
-
+app.use("/", router);
 app.listen(port,()=>{
     console.log(`server up on server ${port}`);
 });
