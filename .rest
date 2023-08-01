@@ -10,3 +10,16 @@ Content-Type: application/json
     "publish_year" :"2015",
     "description" : "Design Pattern Fundamental"
 }
+
+###
+GET  http://localhost:3000/api/v1/members
+Content-Type: application/json
+
+{
+    "name" : "hendar" ,
+    "npa" : "0001",
+    "email" : "hendar@clodeo.com",
+    "phone": "08139444928"
+
+
+}
