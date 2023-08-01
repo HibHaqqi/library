@@ -99,4 +99,23 @@ api.post('/v1/loans', async (req,res)=>{
         });
     }
 })
+
+api.get('/v1/members/loan/:id', async(req,res)=>{
+    const member = await Member.findOne({
+        where:{
+            id : req.params.id},
+        include:[{
+            model : LoanBook,
+            include :[{
+                model:Book
+            }]
+        }]
+            
+    });
+    res.status(200).json({
+        status:"success",
+        data :member})
+});
+
+
 module.exports = api;
