@@ -10,16 +10,29 @@ Content-Type: application/json
     "publish_year" :"2015",
     "description" : "Design Pattern Fundamental"
 }
+###
+GET http://localhost:3000/api/v1/members
 
 ###
-GET  http://localhost:3000/api/v1/members
+POST   http://localhost:3000/api/v1/members
 Content-Type: application/json
 
 {
-    "name" : "hendar" ,
-    "npa" : "0001",
-    "email" : "hendar@clodeo.com",
+    "name" : "shanum" ,
+    "npa" : "0003",
+    "email" : "shanum@clodeo.com",
     "phone": "08139444928"
 
+
+}
+
+###
+POST   http://localhost:3000/api/v1/loans
+Content-Type: application/json
+
+{
+    "member_id" : 1 ,
+    "book_id" : 3,
+    "lengh_of_loan" : 3,
 
 }
