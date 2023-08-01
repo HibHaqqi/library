@@ -29,8 +29,8 @@ module.exports = {
       lenght_of_loan: {
         type: Sequelize.INTEGER
       },
-      due_date_of_load: {
-        type: Sequelize.INTEGER
+      due_date_of_loan: {
+        type: Sequelize.DATE
       },
       createdAt: {
         allowNull: false,

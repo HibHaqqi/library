@@ -23,8 +23,8 @@ module.exports = (sequelize, DataTypes) => {
   LoanBook.init({
     member_id: DataTypes.INTEGER,
     book_id: DataTypes.INTEGER,
-    lenght_of_loan: DataTypes.INTEGER,
-    due_date_of_load: DataTypes.INTEGER
+    length_of_loan: DataTypes.INTEGER,
+    due_date_of_loan: DataTypes.DATE
   }, {
     sequelize,
     modelName: 'LoanBook',

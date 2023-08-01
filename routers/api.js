@@ -1,6 +1,6 @@
 const express = require("express");
 const api = express.Router();
-const {Book,Member} = require("../models");
+const {Book,Member, LoanBook} = require("../models");
 
 api.get('/v1/books',  async (req,res)=>{
     const books = await Book.findAll();
@@ -13,7 +13,7 @@ api.get('/v1/books',  async (req,res)=>{
         res.status(400).json({
             status:"failed",
             message: error.message,
-            stack:err
+            stack:error
         });
     }
 });
@@ -51,7 +51,7 @@ api.get('/v1/members', async (req,res)=>{
         res.status(400).json({
             status:"failed",
             message: error.message,
-            stack:err
+            stack:error
         });
     }
 })
@@ -78,25 +78,25 @@ api.post('/v1/members', async (req,res)=>{
 api.post('/v1/loans', async (req,res)=>{
     const{member_id,book_id,length_of_loan} =req.body;
     const date =new Date();
-    const due_date_of_load = date.setDate(date.getDate()+lenght_of_loan);
+    const due_date_of_loan = date.setDate(date.getDate()+ length_of_loan);
 
     try {
         const loan = await LoanBook.create({
-            member_id,book_id,length_of_loan,due_date_of_load
+            member_id,book_id,length_of_loan,due_date_of_loan
         });
         res.status(201).json({
             status:"success",
             data: loan,
-            message : error.message,
-            stack : err
+            message : "Data Pinjaman Berhasil Ditambahakan"
+          
         })
     } catch (error) {
         res.status(400).json({
-            status:"success",
+            status:"failed",
             data: req.body,
             message : error.message,
-            stack : err
-        })
+            stack : error
+        });
     }
 })
 module.exports = api;
