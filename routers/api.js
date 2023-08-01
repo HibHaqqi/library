@@ -14,28 +14,28 @@ api.get('/v1/books',  async (req,res)=>{
             status:"failed",
             message: error.message,
             stack:err
-        })
+        });
     }
 });
 
-api.post('v1/books', async (req,res)=>{
+api.post('/v1/books', async (req,res)=>{
     const {title, author, publish_year,description} = req.body;
     try {
         const book = await Book.create({
             title,author,publish_year,description
         });
-        res.status(201).send.json({
+        res.status(201).json({
             status: "success",
             data: book,
             message:"data buku berhasil ditambahkan"
         });
     } catch (error) {
-        res.status(400).send.json({
+        res.status(400).json({
             status: "failed",
             data: "req.body",
-            message: err.message,
-            stack:err
-        })
+            message: error.message,
+            stack:error
+        });
     }
 });
 
