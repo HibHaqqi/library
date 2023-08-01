@@ -6,10 +6,10 @@ POST http://localhost:3000/api/v1/books
 Content-Type: application/json
 
 {
-    "title" : "Refactory",
-    "author" : "Alexander",
-    "publish_year" :"2015",
-    "description" : "Design Pattern Fundamental"
+    "title" : "Journey to Center Earth",
+    "author" : "Gembel",
+    "publish_year" :"1997",
+    "description" : "novel"
 }
 ###
 GET http://localhost:3000/api/v1/members

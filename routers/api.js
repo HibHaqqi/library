@@ -76,13 +76,13 @@ api.post('/v1/members', async (req,res)=>{
     }
 });
 api.post('/v1/loans', async (req,res)=>{
-    const{member_id,book_id,length_of_loan} =req.body;
+    const{member_id,book_id,lenght_of_loan} =req.body;
     const date =new Date();
-    const due_date_of_loan = date.setDate(date.getDate()+ length_of_loan);
+    const due_date_of_loan = date.setDate(date.getDate()+ lenght_of_loan);
 
     try {
         const loan = await LoanBook.create({
-            member_id,book_id,length_of_loan,due_date_of_loan
+            member_id,book_id,lenght_of_loan,due_date_of_loan
         });
         res.status(201).json({
             status:"success",
